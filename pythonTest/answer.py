@@ -1,10 +1,14 @@
-# **** 1 ****
 import data
 
-def createCompanyBranches():
+companies = data.get_companies()
+branches = data.get_branches()
+
+# **** 1 start ****
+
+def createCompanyBranches(companies, branches):
     
-    companies = data.get_companies()
-    branches = data.get_branches()
+    companies = companies
+    branches = branches
     
     # Crear un diccionario vacío que contendrá las empresas y sus sucursales correspondientes
     company_branches = {}
@@ -24,10 +28,31 @@ def createCompanyBranches():
         
     return company_branches
 
-companies =  createCompanyBranches()
+companiesFilter =  createCompanyBranches(companies, branches)
 
-print(companies)
+print(companiesFilter)
 
+# **** 1 End ****
+
+print("\n")
+
+# **** 2 start ****
+# to use this function have to set the id of the branch you want to see in id_sucursal
+    
+def getSucursalById(sucursales, id_sucursal):
+    for sucursal in sucursales.values():
+        for info_sucursal in sucursal:
+            if info_sucursal['id'] == id_sucursal:
+                return info_sucursal
+    return None
+
+id_sucursal = 5
+info_sucursal = getSucursalById(companiesFilter, id_sucursal)
+
+if info_sucursal:
+    print(f"Información de la sucursal con id {id_sucursal}: {info_sucursal}")
+else:
+    print(f"No se encontró una sucursal con id {id_sucursal}")
 
 
 
