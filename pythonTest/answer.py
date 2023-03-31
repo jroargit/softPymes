@@ -54,5 +54,21 @@ if info_sucursal:
 else:
     print(f"No se encontró una sucursal con id {id_sucursal}")
 
+# **** 2 end ****
 
+print("\n")
+
+# **** 3 start ****
+thirds = data.get_thirds()
+
+def getThirdName(thirds):
+    thirdName = {}
+    thirdNameList = []
+    
+
+    for data in thirds:
+        if data["firstname"]!="":
+            thirdNameList.append(data["firstname"], data["lastname"], data["maidenname"])
+        else:
+            thirdNameList.append(data["tradename"])
 
